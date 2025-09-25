@@ -1,0 +1,868 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My API Тестовая работа",
+        "description": "API Documentation",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api",
+            "description": "Local Server"
+        }
+    ],
+    "paths": {
+        "/organization/id": {
+            "get": {
+                "tags": [
+                    "Вывод информации об организации по её идентификатору"
+                ],
+                "summary": "Вывод информации об организации по её идентификатору",
+                "operationId": "285a9a0aa1495a2f53b47af3ac7d3737",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "id": 6,
+                                                "name": "ОАО ТекстильТяжХозСнаб",
+                                                "phones": [
+                                                    "(35222) 03-5053",
+                                                    "(35222) 13-8860",
+                                                    "(812) 534-80-43",
+                                                    "8-800-319-9298"
+                                                ],
+                                                "building": {
+                                                    "country": "Западная Сахара",
+                                                    "city": "Ступино",
+                                                    "street": "Русаков Street",
+                                                    "house": "94",
+                                                    "office": "94",
+                                                    "latitude": "79.82550300",
+                                                    "longitude": "137.93060800"
+                                                },
+                                                "activities": [
+                                                    {
+                                                        "id": 2,
+                                                        "name": "et voluptatum"
+                                                    },
+                                                    {
+                                                        "id": 4,
+                                                        "name": "nisi culpa"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated/Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "object",
+                                            "example": {
+                                                "success": false,
+                                                "message": "Validation failed",
+                                                "errors": {
+                                                    "name": [
+                                                        "Поле id должно быть целым числом."
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/organization/name": {
+            "get": {
+                "tags": [
+                    "Поиск организации по названию"
+                ],
+                "summary": "Поиск организации по названию",
+                "operationId": "95a103ed88f5cb32a45729a794664eb9",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "id": 6,
+                                                "name": "ОАО ТекстильТяжХозСнаб",
+                                                "phones": [
+                                                    "(35222) 03-5053",
+                                                    "(35222) 13-8860",
+                                                    "(812) 534-80-43",
+                                                    "8-800-319-9298"
+                                                ],
+                                                "building": {
+                                                    "country": "Западная Сахара",
+                                                    "city": "Ступино",
+                                                    "street": "Русаков Street",
+                                                    "house": "94",
+                                                    "office": "94",
+                                                    "latitude": "79.82550300",
+                                                    "longitude": "137.93060800"
+                                                },
+                                                "activities": [
+                                                    {
+                                                        "id": 2,
+                                                        "name": "et voluptatum"
+                                                    },
+                                                    {
+                                                        "id": 4,
+                                                        "name": "nisi culpa"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated/Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "object",
+                                            "example": {
+                                                "success": false,
+                                                "message": "Validation failed",
+                                                "errors": {
+                                                    "name": [
+                                                        "Поле name должно содержать минимум 3 символа."
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/organizations/building": {
+            "get": {
+                "tags": [
+                    "Cписок всех организаций находящихся в конкретном здании"
+                ],
+                "summary": "Cписок всех организаций находящихся в конкретном здании",
+                "operationId": "73db0a8dd8b5dc275426f8f62516bbb2",
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "street",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "house",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "id": 6,
+                                                "name": "ОАО ТекстильТяжХозСнаб",
+                                                "phones": [
+                                                    "(35222) 03-5053",
+                                                    "(35222) 13-8860",
+                                                    "(812) 534-80-43",
+                                                    "8-800-319-9298"
+                                                ],
+                                                "building": {
+                                                    "country": "Западная Сахара",
+                                                    "city": "Ступино",
+                                                    "street": "Русаков Street",
+                                                    "house": "94",
+                                                    "office": "94",
+                                                    "latitude": "79.82550300",
+                                                    "longitude": "137.93060800"
+                                                },
+                                                "activities": [
+                                                    {
+                                                        "id": 2,
+                                                        "name": "et voluptatum"
+                                                    },
+                                                    {
+                                                        "id": 4,
+                                                        "name": "nisi culpa"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated/Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "object",
+                                            "example": {
+                                                "success": false,
+                                                "message": "Validation failed",
+                                                "errors": {
+                                                    "country": [
+                                                        "Поле страна обязательно для заполнения."
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "object",
+                                            "example": {
+                                                "success": false,
+                                                "message": "API endpoint not found",
+                                                "error": "The requested endpoint does not exist"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/organizations/activity": {
+            "get": {
+                "tags": [
+                    "Список всех организаций, которые относятся к указанному виду деятельности"
+                ],
+                "summary": "Список всех организаций, которые относятся к указанному виду деятельности",
+                "operationId": "fd575c69d6c4943b8a1e2fce2c4bf781",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "id": 6,
+                                                "name": "ОАО ТекстильТяжХозСнаб",
+                                                "phones": [
+                                                    "(35222) 03-5053",
+                                                    "(35222) 13-8860",
+                                                    "(812) 534-80-43",
+                                                    "8-800-319-9298"
+                                                ],
+                                                "building": {
+                                                    "country": "Западная Сахара",
+                                                    "city": "Ступино",
+                                                    "street": "Русаков Street",
+                                                    "house": "94",
+                                                    "office": "94",
+                                                    "latitude": "79.82550300",
+                                                    "longitude": "137.93060800"
+                                                },
+                                                "activities": [
+                                                    {
+                                                        "id": 2,
+                                                        "name": "et voluptatum"
+                                                    },
+                                                    {
+                                                        "id": 4,
+                                                        "name": "nisi culpa"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated/Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "object",
+                                            "example": {
+                                                "success": false,
+                                                "message": "Validation failed",
+                                                "errors": {
+                                                    "name": [
+                                                        "Поле name должно содержать минимум 3 символа."
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "object",
+                                            "example": {
+                                                "success": false,
+                                                "message": "API endpoint not found",
+                                                "error": "The requested endpoint does not exist"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Искать организации по виду деятельности"
+                ],
+                "summary": "Искать организации по виду деятельности",
+                "operationId": "1422f10fcd92e614bd1a4548e83527dd",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "id": 6,
+                                                "name": "ОАО ТекстильТяжХозСнаб",
+                                                "phones": [
+                                                    "(35222) 03-5053",
+                                                    "(35222) 13-8860",
+                                                    "(812) 534-80-43",
+                                                    "8-800-319-9298"
+                                                ],
+                                                "building": {
+                                                    "country": "Западная Сахара",
+                                                    "city": "Ступино",
+                                                    "street": "Русаков Street",
+                                                    "house": "94",
+                                                    "office": "94",
+                                                    "latitude": "79.82550300",
+                                                    "longitude": "137.93060800"
+                                                },
+                                                "activities": [
+                                                    {
+                                                        "id": 2,
+                                                        "name": "et voluptatum"
+                                                    },
+                                                    {
+                                                        "id": 4,
+                                                        "name": "nisi culpa"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated/Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "object",
+                                            "example": {
+                                                "success": false,
+                                                "message": "Validation failed",
+                                                "errors": {
+                                                    "name": [
+                                                        "Поле name должно содержать минимум 3 символа."
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "object",
+                                            "example": {
+                                                "success": false,
+                                                "message": "API endpoint not found",
+                                                "error": "The requested endpoint does not exist"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/organizations/coordinates": {
+            "post": {
+                "tags": [
+                    "Список организаций, которые находятся в заданной  области"
+                ],
+                "summary": "Список организаций, которые находятся в заданной  области",
+                "operationId": "454b8da35e82e2d8a6704c51b00324e1",
+                "parameters": [
+                    {
+                        "name": "lng",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "data": {
+                                                    "organizations": [
+                                                        [
+                                                            {
+                                                                "id": 1,
+                                                                "name": "ООО ПивСантех",
+                                                                "phones": [],
+                                                                "building": {
+                                                                    "country": "Филиппины",
+                                                                    "city": "Видное",
+                                                                    "street": "Иванов Street",
+                                                                    "house": "33",
+                                                                    "office": "87",
+                                                                    "latitude": "-50.33575200",
+                                                                    "longitude": "-11.65273000"
+                                                                },
+                                                                "activities": [
+                                                                    {
+                                                                        "id": 4,
+                                                                        "name": "nisi culpa"
+                                                                    },
+                                                                    {
+                                                                        "id": 1,
+                                                                        "name": "quia magnam"
+                                                                    },
+                                                                    {
+                                                                        "id": 2,
+                                                                        "name": "et voluptatum"
+                                                                    },
+                                                                    {
+                                                                        "id": 6,
+                                                                        "name": "sed rerum"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ],
+                                                        [
+                                                            {
+                                                                "id": 23,
+                                                                "name": "ПАО МетизДизайнМяс",
+                                                                "phones": [
+                                                                    "(812) 781-79-91",
+                                                                    "+7 (922) 459-7485",
+                                                                    "+7 (922) 794-5414"
+                                                                ],
+                                                                "building": {
+                                                                    "country": "Филиппины",
+                                                                    "city": "Видное",
+                                                                    "street": "Иванов Street",
+                                                                    "house": "33",
+                                                                    "office": "89",
+                                                                    "latitude": "-50.33575200",
+                                                                    "longitude": "-11.65273000"
+                                                                },
+                                                                "activities": [
+                                                                    {
+                                                                        "id": 1,
+                                                                        "name": "quia magnam"
+                                                                    },
+                                                                    {
+                                                                        "id": 3,
+                                                                        "name": "vel voluptas"
+                                                                    },
+                                                                    {
+                                                                        "id": 2,
+                                                                        "name": "et voluptatum"
+                                                                    },
+                                                                    {
+                                                                        "id": 1,
+                                                                        "name": "quia magnam"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "buildings": [
+                                                        {
+                                                            "country": "Филиппины",
+                                                            "city": "Видное",
+                                                            "street": "Иванов Street",
+                                                            "house": "33"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated/Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "object",
+                                            "example": {
+                                                "success": false,
+                                                "message": "Validation failed",
+                                                "errors": {
+                                                    "lng": [
+                                                        "Поле lng обязательно."
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Enter personal access token in format: Bearer {token}",
+                "in": "header",
+                "bearerFormat": "Personal Access Token",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Вывод информации об организации по её идентификатору",
+            "description": "Вывод информации об организации по её идентификатору"
+        },
+        {
+            "name": "Поиск организации по названию",
+            "description": "Поиск организации по названию"
+        },
+        {
+            "name": "Cписок всех организаций находящихся в конкретном здании",
+            "description": "Cписок всех организаций находящихся в конкретном здании"
+        },
+        {
+            "name": "Список всех организаций, которые относятся к указанному виду деятельности",
+            "description": "Список всех организаций, которые относятся к указанному виду деятельности"
+        },
+        {
+            "name": "Искать организации по виду деятельности",
+            "description": "Искать организации по виду деятельности"
+        },
+        {
+            "name": "Список организаций, которые находятся в заданной  области",
+            "description": "Список организаций, которые находятся в заданной  области"
+        }
+    ]
+}
